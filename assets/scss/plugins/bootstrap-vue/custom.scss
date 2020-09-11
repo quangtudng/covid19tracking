@@ -1,0 +1,12 @@
+// Import Bootstrap and BootstrapVue source SCSS files
+// This is required! For variants customization for your theme!
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap-vue/src/index.scss';
+
+// Import main variants file
+// Declare your variants and colors here
+@import 'assets/scss/plugins/bootstrap-vue/variants/main.scss';
+// Define your custom class use for your variants
+// For example if you declare a variant purple in main.scss
+// You must have some sorta .bg-purple or .text-purple class defined
+@import 'assets/scss/plugins/bootstrap-vue/variants/custom/purple.scss';

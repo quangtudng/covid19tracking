@@ -1,0 +1,25 @@
+{
+  "navbar": {
+    "brand": "TechCompare"
+  },
+  "footer": {
+    "copyright": "Bản quyền bởi Quang Tu, 2020"
+  },
+  "homepage": {
+    "quote-title": "Nhân được những thông tin mới nhất về tình hình Covid19",
+    "quote-description": "CTracker, nguồn thông tin nhanh nhất và đáng tin cậy để theo dõi tình trạng Covid",
+    "ad-1": "Chúng tôi sẽ mang đến cho bạn thông tin mới nhất về tình hình Corona",
+    "ad-2": "Mỗi ngày, số lượng ca nhiễm bệnh và tử vong vẫn tiếp tục gia tăng đều. Mục tiêu của chúng tôi đó chính là đưa thông tin mới nhất và chính xác nhất tới mọi người để có thể ngăn chặn và làm chậm đi quá trình lây lan dịch bệnh",
+    "ad-3": "Dữ liệu thực tế lấy trực tiếp từ WHO, ECDC và CDC",
+    "ad-4": "Những dữ liệu bạn đang theo dõi trên trang có thể đảm bảo:",
+    "ad-5": {
+      "list-1": "Hoàn toàn đáng tin cậy",
+      "list-2": "Thông tin chính xác",
+      "list-3": "Được lấy thời gian thực",
+      "list-4": "Hoàn toàn không tốn phí",
+      "list-5": "Đầy đủ thông tin chi tiết"
+    },
+    "ad-6": "Số lượng ca nhiễm tại các quốc gia khác nhau cập nhật hằng ngày",
+    "ad-7": "Thông qua bảng chi tiết này, người dùng có thể biết được tình hình nhiễm bệnh của các quốc gia khác nhau trên thế giới"
+  }
+}

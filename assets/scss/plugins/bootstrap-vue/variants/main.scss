@@ -1,0 +1,81 @@
+// Base grayscale colors definitions
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+// Base colors definitions
+$blue: #007bff !default;
+$indigo: #6610f2 !default;
+// When creating a variant, it's recommended to create some lighter and darker versions of it
+$purple: #563D7C !default;
+$purple-light: #a980f5 !default;
+$purple-dark: #572ea1 !default;
+$purple-darker: #4c187c !default;
+// Above, there're 4 level of the purple variant
+$pink: #e83e8c !default;
+$red: #E53E3E !default;
+$red-light: #FFF5F5 !default;
+$red-medium: #FED7D7 !default;
+$orange: #fd7e14 !default;
+$yellow: #ffc107 !default;
+$green-light: #F0FFF4 !default;
+$green-medium: #C6F6D5 !default;
+$green: #28a745 !default;
+$teal: #20c997 !default;
+$cyan: #17a2b8 !default;
+$brown: #A52A2A !default;
+// Brand color
+$tech: #0000FF;
+$tech-light: #ADD8E6;
+$tech-dark: #0000A0;
+// Theme color default definitions
+$primary: $blue !default;
+$secondary: $gray-600 !default;
+$success-light: $green-light !default;
+$success-medium: $green-medium !default;
+$success: $green !default;
+$info: $cyan !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$danger-medium: $red-medium !default;
+$danger-light: $red-light !default;
+$light: $gray-100 !default;
+$dark: $gray-800 !default;
+$dark-medium: $gray-500 !default;
+$dark-light: $gray-400 !default;
+
+// This table defines the theme colors (variant names)
+$theme-colors: () !default;
+$theme-colors: map-merge(
+  (
+    'primary': $primary,
+    'secondary': $secondary,
+    'success-light': $success-light,
+    'success-medium': $success-medium,
+    'success': $success,
+    'info': $info,
+    'warning': $warning,
+    'danger': $danger,
+    'danger-medium': $danger-medium,
+    'danger-light': $danger-light,
+    'light': $light,
+    'dark-light': $dark-light,
+    'dark-medium': $dark-medium,
+    'dark': $dark,
+    'purple': $purple,
+    'black': $black,
+    'white': $white,
+    'gray': $gray-600,
+    'tech': $tech,
+    'tech-dark': $tech-dark
+  ),
+  $theme-colors
+);
