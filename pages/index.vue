@@ -46,7 +46,7 @@ export default {
   head() {
     return {
       title: 'Home page',
-      description: 'A short dummy description'
+      description: 'The home page'
     }
   }
 }

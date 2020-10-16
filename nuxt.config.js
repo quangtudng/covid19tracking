@@ -33,7 +33,7 @@ export default {
   css: [
     '~/assets/scss/plugins/bootstrap-vue/custom.scss',
     '~/assets/scss/main.scss',
-    '~/assets/scss/common/all.scss',
+    '~/assets/scss/common/all.scss'
   ],
   /*
    ** Import scss resource in every component so we can use the global variant varibles
@@ -52,7 +52,7 @@ export default {
     // Plugins
     '~/plugins/i18n.js',
     // Utilities
-    '~/utils/filters.js', // Filters for custom text formating
+    '~/utils/filters.js' // Filters for custom text formating
   ],
   /*
    ** Nuxt.js dev-modules
@@ -60,7 +60,16 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
+    '@nuxtjs/moment'
   ],
+  /*
+   ** NuxtJS Moment module
+   */
+  moment: {
+    defaultLocale: 'en',
+    locales: ['vi']
+  },
+
   /*
    ** Nuxt.js modules
    */

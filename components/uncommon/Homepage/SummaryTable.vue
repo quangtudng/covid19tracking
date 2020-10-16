@@ -12,34 +12,83 @@
           </p>
         </div>
         <p class="text-danger">
-          * Dữ liệu bảng được cập nhật hằng ngày, vui lòng ấn vào tên một đất
-          nước nếu muốn xem dữ liệu thực tế
+          * Dữ liệu bảng được cập nhật hằng ngày
         </p>
+        <b-form-input
+          v-model="query"
+          class="mb-4"
+          placeholder="Search by country"
+        ></b-form-input>
       </b-col>
       <b-col cols="12">
         <b-table
           id="user-table"
           responsive
           bordered
+          :filter="query"
           show-empty
           hover
           per-page="10"
           :items="items"
           :fields="fields"
         >
+          <template v-slot:head(Country)="data">
+            <span class="font-weight-bold">
+              {{ $t(`table.${data.column}`) }}
+            </span>
+          </template>
+          <template v-slot:head(TotalConfirmed)="data">
+            <span class="font-weight-bold">
+              {{ $t(`table.${data.column}`) }}
+            </span>
+          </template>
+          <template v-slot:head(TotalDeaths)="data">
+            <span class="font-weight-bold">
+              {{ $t(`table.${data.column}`) }}
+            </span>
+          </template>
+          <template v-slot:head(TotalRecovered)="data">
+            <span class="font-weight-bold">
+              {{ $t(`table.${data.column}`) }}
+            </span>
+          </template>
+          <template v-slot:head(Date)="data">
+            <span class="font-weight-bold">
+              {{ $t(`table.${data.column}`) }}
+            </span>
+          </template>
           <template v-slot:cell(Country)="data">
             <img
               :src="`https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/${data.item.CountryCode.toLowerCase()}.svg`"
               :alt="data.value"
               width="20px"
             />
-            <span class="h-100 m-0 w-100" style="cursor: pointer;">
+            <span
+              class="h-100 m-0 w-100"
+              style="cursor: pointer;"
+              @click="$router.push(`/country/${data.item.CountryCode}`)"
+            >
               {{ data.value }}
             </span>
           </template>
-          <template v-slot:cell()="data">
-            <span class="h-100 m-0 w-100">
+          <template v-slot:cell(TotalConfirmed)="data">
+            <span class="h-100 m-0 w-100 text-primary">
               {{ data.value | numeral }}
+            </span>
+          </template>
+          <template v-slot:cell(TotalDeaths)="data">
+            <span class="h-100 m-0 w-100 text-danger">
+              {{ data.value | numeral }}
+            </span>
+          </template>
+          <template v-slot:cell(TotalRecovered)="data">
+            <span class="h-100 m-0 w-100 text-success">
+              {{ data.value | numeral }}
+            </span>
+          </template>
+          <template v-slot:cell(Date)="data">
+            <span class="h-100 m-0 w-100 text-secondary">
+              {{ $moment(data.value).format('L, LTS') }}
             </span>
           </template>
         </b-table>
@@ -59,12 +108,13 @@ export default {
   },
   data() {
     return {
+      query: '',
       fields: [
-        { key: 'Country', label: 'Country', sortable: true },
-        { key: 'TotalConfirmed', label: 'Total Confirmed', sortable: true },
-        { key: 'TotalDeaths', label: 'Total Death', sortable: true },
-        { key: 'TotalRecovered', label: 'Total Recovered', sortable: true },
-        { key: 'Date', label: 'Date Recorded', sortable: true }
+        { key: 'Country', sortable: true },
+        { key: 'TotalConfirmed', sortable: true },
+        { key: 'TotalDeaths', sortable: true },
+        { key: 'TotalRecovered', sortable: true },
+        { key: 'Date', sortable: true }
       ]
     }
   }

@@ -16,16 +16,23 @@
     "quote-description": "CTracker, the most reliable and fastest source for you to catch up information about Coronavirus",
     "ad-1": "We will bring you live data about the Coronavirus worldwide",
     "ad-2": "We have seen no stop to the Coronavirus due to the lack of information. Our aim is to let our users have the latest info for them to catch up and help preventing the situation from getting worse",
-    "ad-3": "Realtime data was gathered from WHO, ECDC and CDC",
+    "ad-3": "Precise data was gathered from WHO, ECDC and CDC",
     "ad-4": "You can assured that the data you are seeing on this page is:",
     "ad-5": {
       "list-1": "Absolutely reliable",
       "list-2": "Most accurate data",
-      "list-3": "Realtime worldwide data",
+      "list-3": "Precise worldwide data",
       "list-4": "Completely free and always will be",
       "list-5": "Extremely informative"
     },
     "ad-6": "The total numbers of infected people around the world are updated daily",
     "ad-7": "Using tables like these, users can get a summary view of the current situation world wide"
+  },
+  "table": {
+    "Country": "Country",
+    "TotalConfirmed": "Total Confirmed",
+    "TotalDeaths": "Total Death",
+    "TotalRecovered": "Total Recovered",
+    "Date": "Date Recorded"
   }
 }

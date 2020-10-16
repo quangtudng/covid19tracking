@@ -7,6 +7,13 @@
         </p>
       </b-col>
       <b-col class="text-right">
+        <b-form-select
+          v-model="selectedLang"
+          :options="lang"
+          class="mr-2"
+          size="sm"
+          style="width: 100px;"
+        ></b-form-select>
         <a href="https://www.youtube.com/user/PewDiePie" target="_blank">
           <img src="~/assets/img/brand-logo/youtube.svg" class="brand-logo" />
         </a>
