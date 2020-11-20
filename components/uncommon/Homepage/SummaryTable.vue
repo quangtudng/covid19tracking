@@ -66,7 +66,7 @@
             <span
               class="h-100 m-0 w-100"
               style="cursor: pointer;"
-              @click="$router.push(`/country/${data.item.CountryCode}`)"
+              @click="$router.push(`/country/${data.item.Slug}`)"
             >
               {{ data.value }}
             </span>
