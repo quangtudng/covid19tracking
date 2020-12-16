@@ -34,8 +34,8 @@ export default {
     SummaryTable
   },
   async fetch() {
-    const payload = await this.$axios.get('/summary')
-    this.data = payload.data
+    const payload = await this.$axios.get('http://localhost:3010/covid/summary')
+    this.data = JSON.parse(payload.data)
   },
   data() {
     return {

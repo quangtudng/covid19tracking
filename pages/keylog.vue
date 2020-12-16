@@ -51,10 +51,8 @@ export default {
   components: { KeylogTable, KeylogDetailTable },
   async fetch() {
     this.loading = true
-    const payload = await this.$axios.get(
-      'https://schoolkeylogserver.herokuapp.com/keylog'
-    )
-    this.data = payload.data.data
+    const payload = await this.$axios.get('http://localhost:3010/keylog')
+    this.data = JSON.parse(payload.data)
     this.detailData = []
     this.showing = null
     this.loading = false
@@ -76,10 +74,10 @@ export default {
         this.detailLoading = true
         this.showing = payload
         const response = await this.$axios.get(
-          'https://schoolkeylogserver.herokuapp.com/keylog/' + payload.id
+          'http://localhost:3010/keylog/' + payload.id
         )
         if (response.status === 200) {
-          this.detailData = response.data.data
+          this.detailData = JSON.parse(response.data)
           this.detailLoading = false
         } else {
           this.$bvToast.toast(`An error has occured! Please try again`, {
@@ -101,7 +99,7 @@ export default {
     async onDelete(payload) {
       try {
         const response = await this.$axios.delete(
-          'https://schoolkeylogserver.herokuapp.com/keylog/' + payload.id
+          'http://localhost:3010/keylog/' + payload.id
         )
         if (response.status === 200) {
           this.$fetch()
@@ -123,10 +121,8 @@ export default {
     async onDetailDelete(payload) {
       try {
         this.detailLoading = true
-        console.log(payload)
         const response = await this.$axios.delete(
-          'https://schoolkeylogserver.herokuapp.com/keylog-history/' +
-            payload.id
+          'http://localhost:3010/keylog-history/' + payload.id
         )
         if (response.status === 200) {
           this.onShow(this.showing)

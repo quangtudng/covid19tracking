@@ -106,9 +106,9 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {
-    baseURL: 'https://api.covid19api.com/'
-  },
+  // axios: {
+  //   baseURL: 'http://localhost:3010'
+  // },
   /*
    ** Build configuration
    */
