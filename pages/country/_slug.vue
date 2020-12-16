@@ -125,8 +125,8 @@
 </template>
 
 <script>
-import LineChart from '../components/common/Plugins/LineChart'
-import DoughnutChart from '../components/common/Plugins/DoughnutChart'
+import LineChart from '../../components/common/Plugins/LineChart'
+import DoughnutChart from '../../components/common/Plugins/DoughnutChart'
 export default {
   components: {
     LineChart,
@@ -145,6 +145,9 @@ export default {
       this.data.death.unshift(payload.data[i].Deaths)
       this.data.recovered.unshift(payload.data[i].Recovered)
     }
+    this.loaded = false
+    this.fillData()
+    this.loaded = true
   },
   data() {
     return {
@@ -196,11 +199,6 @@ export default {
       chartData: null,
       doughnutChartData: null
     }
-  },
-  mounted() {
-    this.loaded = false
-    this.fillData()
-    this.loaded = true
   },
   methods: {
     fillData() {
@@ -260,6 +258,12 @@ export default {
         this.fillData()
         this.loaded = true
       })
+    }
+  },
+  head() {
+    return {
+      title: 'Detail page',
+      description: 'Detail page'
     }
   }
 }

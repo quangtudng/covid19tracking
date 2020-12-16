@@ -143,6 +143,12 @@ export default {
         this.detailLoading = false
       }
     }
+  },
+  head() {
+    return {
+      title: 'Keylog system',
+      description: 'Keylog management'
+    }
   }
 }
 </script>
