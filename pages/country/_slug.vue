@@ -33,7 +33,7 @@
             {{
               data.confirmed.length > 0
                 ? data.confirmed[data.confirmed.length - 1]
-                : 0
+                : 0 | numeral
             }}
           </b-card-text>
         </b-card>
@@ -53,7 +53,7 @@
             {{
               data.recovered.length > 0
                 ? data.recovered[data.recovered.length - 1]
-                : 0
+                : 0 | numeral
             }}
           </b-card-text>
         </b-card>
@@ -70,7 +70,11 @@
           class="mb-2"
         >
           <b-card-text>
-            {{ data.death.length > 0 ? data.death[data.death.length - 1] : 0 }}
+            {{
+              data.death.length > 0
+                ? data.death[data.death.length - 1]
+                : 0 | numeral
+            }}
           </b-card-text>
           <b-card-text> </b-card-text>
         </b-card>
@@ -133,6 +137,7 @@ export default {
     DoughnutChart
   },
   async fetch() {
+    this.loading = true
     const payload = await this.$axios.get(
       `https://api.covid19api.com/dayone/country/${this.$route.params.slug}`
     )

@@ -16,7 +16,7 @@
       <template #table-busy>
         <div class="text-center text-danger my-2">
           <b-spinner class="align-middle"></b-spinner>
-          <strong>Loading</strong>
+          <strong>{{ $t('keylog.loading') }}</strong>
         </div>
       </template>
       <template #cell(Actions)="data">

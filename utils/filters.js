@@ -18,6 +18,7 @@ Vue.filter('slugify', (val) => {
 })
 
 Vue.filter('numeral', (val) => {
+  if (val === 0) return 0
   val = val + ''
   return val.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
 })

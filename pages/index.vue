@@ -34,8 +34,14 @@ export default {
     SummaryTable
   },
   async fetch() {
-    const payload = await this.$axios.get('http://localhost:3010/covid/summary')
-    this.data = JSON.parse(payload.data)
+    try {
+      const payload = await this.$axios.get(
+        'http://localhost:3010/covid/summary'
+      )
+      this.data = JSON.parse(payload.data)
+    } catch {
+      console.log('Có lỗi xảy ra')
+    }
   },
   data() {
     return {

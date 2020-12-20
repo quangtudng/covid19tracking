@@ -20,7 +20,15 @@
       "list-5": "Đầy đủ thông tin chi tiết"
     },
     "ad-6": "Số lượng ca nhiễm tại các quốc gia khác nhau cập nhật hằng ngày",
-    "ad-7": "Thông qua bảng chi tiết này, người dùng có thể biết được tình hình nhiễm bệnh của các quốc gia khác nhau trên thế giới"
+    "ad-7": "Thông qua bảng chi tiết này, người dùng có thể biết được tình hình nhiễm bệnh của các quốc gia khác nhau trên thế giới",
+    "total-confirmed": "Tổng số ca nhiễm",
+    "new-confirmed": "Số ca nhiễm mới",
+    "total-recovered": "Tổng số ca bình phục",
+    "new-recovered": "Số ca bình phục mới",
+    "total-death": "Tổng số ca tử vong",
+    "new-death": "Số ca tử vong mới",
+    "data-updated-daily": "Dữ liệu cập nhật hằng ngày",
+    "search-by-country": "Tìm kiếm theo quốc gia"
   },
   "table": {
     "Country": "Quốc gia",
@@ -28,5 +36,27 @@
     "TotalDeaths": "Số ca tử vong",
     "TotalRecovered": "Số ca khỏi",
     "Date": "Thời gian cập nhật dữ liệu"
+  },
+  "keylog": {
+    "title": "Hệ thống quản lý keylog",
+    "search-placeholder": "Tìm kiếm",
+    "refresh": "Tải lại table",
+    "title-2": "Hệ thống quản lý lịch sử keylog",
+    "loading": "Đang tải",
+    "modal-title": "Đang xem lịch sử keylog với id",
+    "user-information": "Thông tin người dùng",
+    "user-machine-information": "Thông tin máy tính người dùng",
+    "record-id": "ID record",
+    "local-ip": "Local ip",
+    "cpu-info": "Thông tin CPU",
+    "machine-type": "Loại máy",
+    "system": "Hệ thống",
+    "system-version": "Phiên bản hệ thống",
+    "time-recorded": "Thời gian lưu",
+    "user-input-information": "Thông tin nhập của người dùng",
+    "key-count": "Số lượng phím nhập",
+    "user-formatted-input": "Thông tin nhập của người dùng",
+    "user-raw-input": "Thông tin nhập của người dùng",
+    "close": "Đóng"
   }
 }

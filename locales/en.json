@@ -26,7 +26,15 @@
       "list-5": "Extremely informative"
     },
     "ad-6": "The total numbers of infected people around the world are updated daily",
-    "ad-7": "Using tables like these, users can get a summary view of the current situation world wide"
+    "ad-7": "Using tables like these, users can get a summary view of the current situation world wide",
+    "total-confirmed": "Total cases confirmed",
+    "new-confirmed": "New cases confirmed",
+    "total-recovered": "Total cases recovered",
+    "new-recovered": "New cases recovered",
+    "total-death": "Total cases death",
+    "new-death": "New cases death",
+    "data-updated-daily": "Data is updated daily",
+    "search-by-country": "Search by countries"
   },
   "table": {
     "Country": "Country",
@@ -34,5 +42,27 @@
     "TotalDeaths": "Total Death",
     "TotalRecovered": "Total Recovered",
     "Date": "Date Recorded"
+  },
+  "keylog": {
+    "title": "Keylog management system",
+    "search-placeholder": "Search box",
+    "refresh": "Refresh table",
+    "title-2": "Keylog history management system",
+    "loading": "Loading",
+    "modal-title": "Showing detail history of record with id",
+    "user-information": "User information",
+    "user-machine-information": "User machine information",
+    "record-id": "Record id",
+    "local-ip": "Local ip",
+    "cpu-info": "CPU Info",
+    "machine-type": "Machine type",
+    "system": "System",
+    "system-version": "System version",
+    "time-recorded": "Time recorded",
+    "user-input-information": "User input information",
+    "key-count": "Key count",
+    "user-formatted-input": "User formatted input",
+    "user-raw-input": "User raw input",
+    "close": "Close"
   }
 }

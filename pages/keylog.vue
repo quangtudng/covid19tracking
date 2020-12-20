@@ -3,17 +3,17 @@
     <b-row>
       <b-col cols="12" class="mb-5">
         <p class="keylog-title">
-          Keylog managing system
+          {{ $t('keylog.title') }}
         </p>
         <div class="d-flex">
           <b-form-input
             v-model="query"
-            placeholder="Search box"
+            :placeholder="$t('keylog.search-placeholder')"
             class="mb-4"
             style="max-width: 200px;"
           ></b-form-input>
           <b-button style="height: 38px;" class="ml-2" @click="$fetch()">
-            Refresh Table
+            {{ $t('keylog.refresh') }}
           </b-button>
         </div>
         <keylog-table
@@ -26,11 +26,11 @@
       </b-col>
       <b-col cols="12">
         <p class="keylog-title">
-          Keylog History managing system
+          {{ $t('keylog.title-2') }}
         </p>
         <b-form-input
           v-model="queryDetail"
-          placeholder="Search box"
+          :placeholder="$t('keylog.search-placeholder')"
           class="mb-4"
           style="max-width: 200px;"
         ></b-form-input>
@@ -50,12 +50,17 @@ import KeylogDetailTable from '../components/uncommon/Keylog/KeylogDetailTable'
 export default {
   components: { KeylogTable, KeylogDetailTable },
   async fetch() {
-    this.loading = true
-    const payload = await this.$axios.get('http://localhost:3010/keylog')
-    this.data = JSON.parse(payload.data)
-    this.detailData = []
-    this.showing = null
-    this.loading = false
+    try {
+      this.loading = true
+      const payload = await this.$axios.get('http://localhost:3010/keylog')
+      this.data = JSON.parse(payload.data)
+      this.detailData = []
+      this.showing = null
+      this.loading = false
+    } catch {
+      this.loading = false
+      console.log('Có lỗi xảy ra')
+    }
   },
   data() {
     return {

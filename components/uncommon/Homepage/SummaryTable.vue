@@ -12,12 +12,12 @@
           </p>
         </div>
         <p class="text-danger">
-          * Dữ liệu bảng được cập nhật hằng ngày
+          {{ $t('homepage.data-updated-daily') }}
         </p>
         <b-form-input
           v-model="query"
           class="mb-4"
-          placeholder="Search by country"
+          :placeholder="$t('homepage.search-by-country')"
         ></b-form-input>
       </b-col>
       <b-col cols="12">

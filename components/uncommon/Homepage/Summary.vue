@@ -27,7 +27,7 @@
                   {{ data.TotalConfirmed | numeral }}
                 </p>
                 <p class="card-text">
-                  Ca nhiễm
+                  {{ $t('homepage.total-confirmed') }}
                   <fa :icon="['fas', 'ambulance']" class="text-danger" />
                 </p>
               </div>
@@ -48,7 +48,7 @@
                   />
                 </p>
                 <p class="card-text">
-                  Ca nhiễm mới
+                  {{ $t('homepage.new-confirmed') }}
                   <fa :icon="['fas', 'ambulance']" class="text-danger" />
                 </p>
               </div>
@@ -61,7 +61,7 @@
                   {{ data.TotalRecovered | numeral }}
                 </p>
                 <p class="card-text">
-                  Ca khỏi bệnh
+                  {{ $t('homepage.total-recovered') }}
                   <fa :icon="['fas', 'laugh-beam']" class="text-success" />
                 </p>
               </div>
@@ -82,7 +82,7 @@
                   />
                 </p>
                 <p class="card-text">
-                  Ca khỏi bệnh mới
+                  {{ $t('homepage.new-recovered') }}
                   <fa :icon="['fas', 'laugh-beam']" class="text-success" />
                 </p>
               </div>
@@ -95,7 +95,7 @@
                   {{ data.TotalDeaths | numeral }}
                 </p>
                 <p class="card-text">
-                  Ca tử vong
+                  {{ $t('homepage.total-death') }}
                   <fa :icon="['fas', 'skull']" class="text-secondary" />
                 </p>
               </div>
@@ -116,7 +116,7 @@
                   />
                 </p>
                 <p class="card-text">
-                  Ca tử vong mới
+                  {{ $t('homepage.new-death') }}
                   <fa :icon="['fas', 'skull']" class="text-secondary" />
                 </p>
               </div>

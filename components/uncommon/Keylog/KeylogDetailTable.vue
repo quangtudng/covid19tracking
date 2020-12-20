@@ -16,7 +16,7 @@
       <template #table-busy>
         <div class="text-center text-danger my-2">
           <b-spinner class="align-middle"></b-spinner>
-          <strong>Loading</strong>
+          <strong>{{ $t('keylog.loading') }}</strong>
         </div>
       </template>
       <template #cell(Actions)="data">
@@ -35,52 +35,61 @@
           />
           <b-modal
             :id="`detail-modal-${data.item.id}`"
-            :title="`Showing detail history of record with id ${data.item.id}`"
+            :title="`${$t('keylog.modal-title')} ${data.item.id}`"
             size="xl"
           >
             <b-container fluid>
               <b-row>
                 <b-col cols="12" xl="6">
                   <p class="modal-title">
-                    User information
+                    {{ $t('keylog.user-information') }}
                   </p>
-                  <b-input-group prepend="RecordId" class="mt-3">
+                  <b-input-group :prepend="$t('keylog.record-id')" class="mt-3">
                     <b-form-input disabled :value="data.item.id"></b-form-input>
                   </b-input-group>
-                  <b-input-group prepend="Local IP" class="mt-3">
+                  <b-input-group :prepend="$t('keylog.local-ip')" class="mt-3">
                     <b-form-input
                       disabled
                       :value="data.item.local_ip_address"
                     ></b-form-input>
                   </b-input-group>
                   <p class="modal-title mt-3">
-                    User machine information
+                    {{ $t('keylog.user-machine-information') }}
                   </p>
-                  <b-input-group prepend="CPU Info" class="mt-3">
+                  <b-input-group :prepend="$t('keylog.cpu-info')" class="mt-3">
                     <b-form-input
                       disabled
                       :value="data.item.cpu_info"
                     ></b-form-input>
                   </b-input-group>
-                  <b-input-group prepend="Machine type" class="mt-3">
+                  <b-input-group
+                    :prepend="$t('keylog.machine-type')"
+                    class="mt-3"
+                  >
                     <b-form-input
                       disabled
                       :value="data.item.machine_type"
                     ></b-form-input>
                   </b-input-group>
-                  <b-input-group prepend="System" class="mt-3">
+                  <b-input-group :prepend="$t('keylog.system')" class="mt-3">
                     <b-form-input
                       disabled
                       :value="data.item.system"
                     ></b-form-input>
                   </b-input-group>
-                  <b-input-group prepend="System version" class="mt-3">
+                  <b-input-group
+                    :prepend="$t('keylog.system-version')"
+                    class="mt-3"
+                  >
                     <b-form-input
                       disabled
                       :value="data.item.system_version"
                     ></b-form-input>
                   </b-input-group>
-                  <b-input-group prepend="Time recorded" class="mt-3">
+                  <b-input-group
+                    :prepend="$t('keylog.time-recorded')"
+                    class="mt-3"
+                  >
                     <b-form-input
                       disabled
                       :value="data.item.time_recorded"
@@ -89,16 +98,16 @@
                 </b-col>
                 <b-col cols="12" xl="6">
                   <p class="modal-title">
-                    User input information
+                    {{ $t('keylog.user-input-information') }}
                   </p>
-                  <b-input-group prepend="Key count" class="my-3">
+                  <b-input-group :prepend="$t('keylog.key-count')" class="my-3">
                     <b-form-input
                       disabled
                       :value="data.item.key_count"
                     ></b-form-input>
                   </b-input-group>
                   <p class="modal-title mb-3">
-                    User formatted input
+                    {{ $t('keylog.user-formatted-input') }}
                   </p>
                   <b-form-textarea
                     id="textarea"
@@ -109,7 +118,7 @@
                     :value="data.item.history"
                   ></b-form-textarea>
                   <p class="modal-title mb-3">
-                    User raw input
+                    {{ $t('keylog.user-raw-input') }}
                   </p>
                   <b-form-textarea
                     id="textarea-2"
@@ -129,7 +138,7 @@
                   class="float-right"
                   @click="$bvModal.hide(`detail-modal-${data.item.id}`)"
                 >
-                  Close
+                  {{ $t('keylog.close') }}
                 </b-button>
               </div>
             </template>
