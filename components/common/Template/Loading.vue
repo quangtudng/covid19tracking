@@ -8,13 +8,11 @@
 <script>
 export default {
   name: 'Loading',
-  data() {
-    return {
-      loading: true
+  props: {
+    loading: {
+      type: Boolean,
+      default: false
     }
-  },
-  mounted() {
-    this.loading = false
   }
 }
 </script>

@@ -1,5 +1,6 @@
 <template>
   <b-container style="min-height: calc(100vh - 56px - 47px);" class="mt-5">
+    <Loading :loading="loading" />
     <b-row>
       <b-col cols="8">
         <LineChart :chart-data="chartData" :options="lineChart.options" />
@@ -131,31 +132,47 @@
 <script>
 import LineChart from '../../components/common/Plugins/LineChart'
 import DoughnutChart from '../../components/common/Plugins/DoughnutChart'
+import Loading from '~/components/common/Template/Loading'
 export default {
   components: {
     LineChart,
+    Loading,
     DoughnutChart
   },
   async fetch() {
-    this.loading = true
-    const payload = await this.$axios.get(
-      `https://api.covid19api.com/dayone/country/${this.$route.params.slug}`
-    )
-    this.dataTable = payload.data.slice().reverse()
-    for (let i = payload.data.length - 1; i > 0; i -= 30) {
-      this.lineChart.labels.unshift(
-        this.$moment(payload.data[i].Date).format('L')
+    try {
+      this.loading = true
+      const payload = await this.$axios.get(
+        `/dayone/country/${this.$route.params.slug}`,
+        { timeout: 9000 }
       )
-      this.data.confirmed.unshift(payload.data[i].Confirmed)
-      this.data.death.unshift(payload.data[i].Deaths)
-      this.data.recovered.unshift(payload.data[i].Recovered)
+      let formattedPayload
+      if (typeof payload.data === 'string') {
+        formattedPayload = JSON.parse(payload.data)
+      } else {
+        formattedPayload = payload.data
+      }
+      this.dataTable = formattedPayload.slice().reverse()
+      for (let i = formattedPayload.length - 1; i > 0; i -= 30) {
+        this.lineChart.labels.unshift(
+          this.$moment(formattedPayload[i].Date).format('L')
+        )
+        this.data.confirmed.unshift(formattedPayload[i].Confirmed)
+        this.data.death.unshift(formattedPayload[i].Deaths)
+        this.data.recovered.unshift(formattedPayload[i].Recovered)
+      }
+      this.loaded = false
+      this.fillData()
+      this.loaded = true
+      this.loading = false
+    } catch {
+      this.loading = false
+      console.log('Có lỗi xảy ra')
     }
-    this.loaded = false
-    this.fillData()
-    this.loaded = true
   },
   data() {
     return {
+      loading: false,
       dataTable: [],
       data: {
         confirmed: [],

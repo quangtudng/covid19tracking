@@ -1,5 +1,6 @@
 <template>
   <b-container fluid class="p-0">
+    <Loading :loading="loading" />
     <!-- Header -->
     <b-row class="header-container" no-gutters>
       <b-col cols="12" class="header">
@@ -26,26 +27,34 @@ import {
   Advertisement_1,
   SummaryTable
 } from '~/components/uncommon/Homepage'
+import Loading from '~/components/common/Template/Loading.vue'
 export default {
   name: 'Home',
   components: {
     Summary,
     Advertisement_1,
-    SummaryTable
+    SummaryTable,
+    Loading
   },
   async fetch() {
     try {
-      const payload = await this.$axios.get(
-        'http://localhost:3010/covid/summary'
-      )
-      this.data = JSON.parse(payload.data)
-    } catch {
+      this.loading = true
+      const payload = await this.$axios.get('/summary', { timeout: 9000 })
+      if (typeof payload.data === 'string') {
+        this.data = JSON.parse(payload.data)
+      } else {
+        this.data = payload.data
+      }
+      this.loading = false
+    } catch (e) {
+      this.loading = false
       console.log('Có lỗi xảy ra')
     }
   },
   data() {
     return {
-      data: {}
+      data: {},
+      loading: false
     }
   },
   layout: 'Client',
